@@ -1,0 +1,22 @@
+{
+    "name": "magelearn/module-customer-delete",
+    "description": "Delete Magento2 Customer Account by Provind link at My Account Dashboard in Frontend.",
+    "type": "magento2-module",
+    "require": {},
+    "authors": [
+        {
+            "name": "vijay rami",
+            "email": "vijaymrami@gmail.com"
+        }
+    ],
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magelearn\\CustomerDelete\\": ""
+        }
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="content">
+            <block class="Magelearn\CustomerDelete\Block\Customer\Delete" name="delete-customer-account" template="customer/delete.phtml">
+            </block>
+        </referenceBlock>
+        <referenceBlock name="page.main.title" display="false"/>
+    </body>
+</page>

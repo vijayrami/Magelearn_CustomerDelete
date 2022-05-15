@@ -1,0 +1,52 @@
+<main id="maincontent" class="page-main">
+	<p class="cms-content-important">Remember before delete customer , all information regarding that customer will delete for permanent
+            and it will not recover any how.</p>
+</main>
+<button type="button" class="action primary open-customer-delete-form">
+    <span data-bind="i18n: 'Delete Customer'"></span>
+</button>
+
+<div class="content" id="popup-modal">
+	<div class="customer-delete-form-popup" style="display: none;">
+		<form id="customer-delete-form" action="<?php echo $block->getUrl()?>customerdelete/index/remove" method="post">
+    		<button class="action submit primary" type="submit" name="actiondelete" value="1">Yes</button>
+    		<button class="action-no primary" type="button" name="actionclose" value="0">No</button>
+		</form>
+	</div>
+</div>
+
+<script>
+require(
+    [
+        'jquery',
+        'Magento_Ui/js/modal/modal'
+    ],
+    function($, modal) {
+    	jQuery(document).ready(function(){
+    		var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Are you sure you want to delete?',
+                buttons: [{
+                    text: $.mage.__('Close'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+    		var openModal = modal(options, $('#popup-modal'));
+
+    		jQuery('body').on('click', '.open-customer-delete-form', function(){
+    			jQuery('.customer-delete-form-popup').show();
+        		jQuery('#popup-modal').modal('openModal');
+    		});
+
+    		jQuery('body').on('click', '#customer-delete-form .action-no', function(e){
+    			jQuery('#popup-modal').modal('closeModal');
+    		});
+    	});
+    }
+);
+</script>
